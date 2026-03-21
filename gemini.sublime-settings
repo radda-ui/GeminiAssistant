@@ -1,0 +1,49 @@
+{
+    // ── API ──────────────────────────────────────────────────────────────────
+    "api_key": ["YOUR_API_KEY"],
+    "model": "gemini-2.5-flash",
+
+    // ── Database ─────────────────────────────────────────────────────────────
+    "db_path": "gemini_db.db",
+
+    // ── System prompt ────────────────────────────────────────────────────────
+    // Keep this focused. Code rules and tool call format are loaded automatically
+    // from gemini_context.md and injected once at the start of each conversation.
+    "system_prompt": "You are a helpful AI coding assistant integrated into Sublime Text. You specialise in game development, particularly Love2D (Lua) and Java games. Help with coding questions, debugging, code generation, refactoring, and project organisation. Be concise and practical.",
+
+    // ── Code tab threshold ───────────────────────────────────────────────────
+    // Code blocks with this many lines or more open in a side tab instead of inline.
+    "code_tab_threshold": 15,
+
+    // ── Generation config ────────────────────────────────────────────────────
+    "config": {
+        "temperature": 0.95,
+        "top_p": 0.95,
+        "top_k": 64,
+        "max_output_tokens": 65536,
+        "response_mime_type": "text/plain"
+    },
+
+    // ── Write tool permissions ───────────────────────────────────────────────
+    // Set to false to block Gemini from performing that class of action.
+    // Destructive actions (edit, patch, delete, move) always ask for confirmation
+    // regardless of confirm_writes. Push is intentionally not implemented.
+
+    "confirm_writes": true,      // confirm non-destructive actions too (create, append, folder)
+
+    "allow_create_file":    true,
+    "allow_edit_file":      true,
+    "allow_patch_file":     true,
+    "allow_append_file":    true,
+    "allow_move_file":      true,
+    "allow_delete_file":    true,
+    "allow_create_folder":  true,
+    "allow_create_project": true,
+
+    "allow_download_file":  false,   // network access — opt in manually
+    "allow_run_build":      false,   // triggers build system — opt in manually
+
+    // Git — local only. Push is not implemented.
+    "allow_git":            false,   // covers init, add, commit, checkout, branch, stash
+    "allow_git_pull":       false    // separate gate for pull
+}

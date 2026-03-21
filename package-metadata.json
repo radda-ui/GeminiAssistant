@@ -1,0 +1,12 @@
+{
+    "name": "gemini",
+    "version": "3.0.1",
+    "sublime_text": ">=4199",
+    "platforms": ["*"],
+    "python_version": "3.8",
+    "issues": "https://github.com/radda-ui/gemini/issues",
+    "author": ["radda-ui"],
+    "description": "Easily chat with Gemini with in Sublime Text",
+    "labels": ["chat", "AI", "development","utilities"],
+    "libraries": ["requests"],
+}

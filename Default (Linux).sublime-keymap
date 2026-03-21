@@ -1,0 +1,32 @@
+[
+    // Enter sends the message when the Gemini console is focused.
+    {
+        "keys": ["enter"],
+        "command": "gemini_console_submit",
+        "context": [
+            { "key": "selector", "operand": "text.gemini-console" }
+        ]
+    },
+
+    // Tab folds / unfolds the Gemini response block at the cursor.
+    {
+        "keys": ["tab"],
+        "command": "gemini_fold_response",
+        "context": [
+            { "key": "selector", "operand": "text.gemini-console" }
+        ]
+    },
+
+    // Alt+G opens the Ask Gemini input panel from any view (with optional selected code).
+    {
+        "keys": ["alt+g"],
+        "command": "gemini_code_assistant"
+    },
+
+    // Alt+N starts a new conversation.
+    {
+        "keys": ["alt+n"],
+        "command": "gemini_new_conversation"
+    }
+]
+

@@ -1,0 +1,60 @@
+%YAML 1.2
+---
+name: Gemini Console
+file_extensions: []
+scope: text.gemini-console
+
+contexts:
+  main:
+    # Session / loading header lines  ── New conversation, Loading Conversation
+    - match: '^(─+.*─+|─+)$'
+      scope: comment.gemini-divider
+
+    - match: '^(❯ SESSION .*)$'
+      scope: comment.gemini-session
+
+    # User prompt line:  you ❯
+    - match: '^(you ❯)(.*)'
+      captures:
+        1: entity.name.gemini-you-prompt
+        2: string.gemini-you-text
+
+    # Gemini prompt line:  gemini ◆
+    - match: '^(gemini ◆)(.*)'
+      captures:
+        1: keyword.gemini-prompt
+        2: markup.gemini-text
+
+    # Error prompt line:  error ✖
+    - match: '^(error ✖)(.*)'
+      captures:
+        1: invalid.gemini-error-prompt
+        2: invalid.gemini-error-text
+
+    # Fenced code block fence lines  (``` lang)
+    - match: '^```\w*$'
+      scope: punctuation.gemini-fence
+      push: code_block
+
+    # Inline code  `something`
+    - match: '`[^`]+`'
+      scope: markup.raw.inline.gemini
+
+    # Bold  **text**
+    - match: '\*\*[^*]+\*\*'
+      scope: markup.bold.gemini
+
+    # Italic / reference lines  *text*
+    - match: '\*[^*]+\*'
+      scope: markup.italic.gemini
+
+    # Bullet points
+    - match: '^\s*[-*]\s'
+      scope: punctuation.gemini-bullet
+
+  code_block:
+    - match: '^```$'
+      scope: punctuation.gemini-fence
+      pop: true
+    - match: '.*'
+      scope: source.gemini-code

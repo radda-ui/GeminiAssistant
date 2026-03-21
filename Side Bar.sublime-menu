@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "-"
+    },
+    {
+        "caption": "gemini: Move / Rename File",
+        "command": "gemini_move_file",
+        "args": { "paths": [] }
+    },
+]

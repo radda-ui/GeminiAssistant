@@ -1,0 +1,55 @@
+Gemini Assistant for Sublime Text
+==================================
+
+Thanks for installing Gemini Assistant!
+
+─────────────────────────────────────
+  SETUP (required)
+─────────────────────────────────────
+
+1. Get a free API key from Google AI Studio:
+   https://aistudio.google.com/app/apikey
+
+2. Open the plugin settings:
+   Preferences > Package Settings > Gemini Assistant > Settings
+
+3. Add your key:
+
+   {
+       "api_key": ["YOUR_API_KEY_HERE"]
+   }
+
+   Multiple keys for automatic quota rotation:
+
+   {
+       "api_key": ["AIza...key1", "AIza...key2"]
+   }
+
+─────────────────────────────────────
+  QUICK START
+─────────────────────────────────────
+
+  Alt+G       Open the Gemini console from any file
+  Alt+N       Start a new conversation
+  Enter       Send a message (inside the console)
+  Tab         Fold / unfold a response
+
+Attach context to any message:
+
+  @player.lua         attach a project file
+  @selection          attach your current selection
+  @console            attach the latest build output
+  @diff               attach unstaged git changes
+  @clipboard          attach clipboard contents
+  @project            attach the project folder tree
+
+─────────────────────────────────────
+  MORE INFO
+─────────────────────────────────────
+
+Full documentation:
+  Tools > Gemini > README
+  https://github.com/radda-ui/GeminiAssistant
+
+Issues / feedback:
+  https://github.com/radda-ui/GeminiAssistant/issues

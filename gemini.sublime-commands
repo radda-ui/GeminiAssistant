@@ -1,0 +1,46 @@
+[
+    {
+        "caption": "Gemini: Ask Gemini",
+        "command": "gemini_code_assistant"
+    },
+    {
+        "caption": "Gemini: New Conversation",
+        "command": "gemini_new_conversation"
+    },
+    {
+        "caption": "Gemini: Open Conversation",
+        "command": "gemini_open_conversation"
+    },
+    {
+        "caption": "Gemini: Delete Conversation",
+        "command": "gemini_delete_conversation"
+    },
+    {
+        "caption": "Gemini: Copy Last Response",
+        "command": "gemini_copy_last_response"
+    },
+    { "caption": "-" },
+    {
+        "caption": "Gemini: Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/gemini/gemini.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "Gemini: Key Bindings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/gemini/Default  ($platform).sublime-keymap",
+            "default": "[\n\t$0\n]\n"
+        }
+    },
+    {
+        "caption": "Gemini: Open Readme",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/gemini/README.md"
+        }
+    }
+]

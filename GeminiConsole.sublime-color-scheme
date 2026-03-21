@@ -1,0 +1,127 @@
+{
+    "name": "Gemini Console",
+    "author": "Gemini Plugin",
+    "variables": {
+        "bg":           "#0d1117",
+        "bg_subtle":    "#161b22",
+        "fg":           "#cdd9e5",
+        "green":        "#3fb950",
+        "green_bright": "#56d364",
+        "green_text":   "#b5e8b0",
+        "cyan":         "#79c0ff",
+        "cyan_dim":     "#388bfd",
+        "yellow":       "#e3b341",
+        "orange":       "#e8922a",
+        "red":          "#f85149",
+        "purple":       "#bc8cff",
+        "gray":         "#6e7681",
+        "gray_dim":     "#3d444d",
+        "white":        "#e6edf3",
+        "code_bg":      "#161b22",
+        "code_fg":      "#a5d6ff"
+    },
+    "globals": {
+        "background":                "var(bg)",
+        "foreground":                "var(fg)",
+        "caret":                     "var(green_bright)",
+        "line_highlight":            "#56d36410",
+        "selection":                 "#264f7840",
+        "selection_border":          "#264f78",
+        "find_highlight":            "var(yellow)",
+        "find_highlight_foreground": "var(bg)",
+        "brackets_foreground":       "var(cyan)",
+        "guide":                     "#ffffff12",
+        "active_guide":              "#56d36430",
+        "stack_guide":               "#ffffff18"
+    },
+    "rules": [
+        {
+            "name": "Session header",
+            "scope": "comment.gemini-session",
+            "foreground": "var(cyan_dim)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Divider",
+            "scope": "comment.gemini-divider",
+            "foreground": "var(gray_dim)"
+        },
+
+        // ── You ──────────────────────────────────────────────────────────────
+        {
+            "name": "You prompt symbol",
+            "scope": "entity.name.gemini-you-prompt",
+            "foreground": "var(green_bright)",
+            "font_style": "bold"
+        },
+        {
+            "name": "You message text",
+            "scope": "string.gemini-you-text",
+            "foreground": "var(green_text)"
+        },
+
+        // ── Gemini ───────────────────────────────────────────────────────────
+        {
+            "name": "Gemini prompt symbol",
+            "scope": "keyword.gemini-prompt",
+            "foreground": "var(cyan)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Gemini response text",
+            "scope": "markup.gemini-text",
+            "foreground": "var(white)"
+        },
+
+        // ── Errors ───────────────────────────────────────────────────────────
+        {
+            "name": "Error prompt",
+            "scope": "invalid.gemini-error-prompt",
+            "foreground": "var(red)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Error text",
+            "scope": "invalid.gemini-error-text",
+            "foreground": "var(red)"
+        },
+
+        // ── Code ─────────────────────────────────────────────────────────────
+        {
+            "name": "Code fence markers",
+            "scope": "punctuation.gemini-fence",
+            "foreground": "var(gray)"
+        },
+        {
+            "name": "Code block content",
+            "scope": "source.gemini-code",
+            "foreground": "var(code_fg)",
+            "background": "var(code_bg)"
+        },
+        {
+            "name": "Inline code",
+            "scope": "markup.raw.inline.gemini",
+            "foreground": "var(code_fg)",
+            "background": "var(code_bg)"
+        },
+
+        // ── Markdown ─────────────────────────────────────────────────────────
+        {
+            "name": "Bold",
+            "scope": "markup.bold.gemini",
+            "foreground": "var(white)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Italic / snippet references",
+            "scope": "markup.italic.gemini",
+            "foreground": "var(orange)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Bullet points",
+            "scope": "punctuation.gemini-bullet",
+            "foreground": "var(cyan_dim)"
+        }
+    ]
+}

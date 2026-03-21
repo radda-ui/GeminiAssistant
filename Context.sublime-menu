@@ -1,0 +1,54 @@
+[
+    {
+        "caption": "Gemini",
+        "id": "gemini_menu",
+        "children": [
+            {
+                "caption": "New Conversation",
+                "command": "gemini_new_conversation"
+            },
+            {
+                "caption": "Open Conversation",
+                "command": "gemini_open_conversation"
+            },
+            {
+                "caption": "Delete Conversation",
+                "command": "gemini_delete_conversation"
+            },
+            {
+                "caption": "-"
+            },
+            {
+                "caption": "Copy Last Response",
+                "command": "gemini_copy_last_response"
+            },
+            {
+                "caption": "-"
+            },
+            {
+                "caption": "Move / Rename File",
+                "command": "gemini_move_file",
+                "args": { "paths": [] }
+            },
+            {
+                "caption": "-"
+            },
+            {
+                "caption": "Settings",
+                "command": "edit_settings",
+                "args": {
+                    "base_file": "${packages}/gemini/gemini.sublime-settings",
+                    "default": "{\n\t$0\n}\n"
+                }
+            },
+            {
+                "caption": "Key Bindings",
+                "command": "edit_settings",
+                "args": {
+                    "base_file": "${packages}/gemini/Default ($platform).sublime-keymap",
+                    "default": "[\n\t$0\n]\n"
+                }
+            }
+        ]
+    }
+]

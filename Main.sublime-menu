@@ -1,0 +1,78 @@
+[
+{
+    "id": "tools",
+    "children": [
+    {
+        "caption": "gemini",
+        "children": [
+        {
+            "caption": "Ask for Code Help",
+            "command": "gemini_code_assistant",
+            "args":
+            {},
+            "id": "gemini_code_assistant"
+        },
+        {
+            "caption": "-",
+        },
+        {
+            "caption": "README",
+            "command": "open_file",
+            "args":
+            {
+                "file": "${packages}/gemini/README.md"
+            }
+        },
+        {
+            "caption": "-"
+        },
+        {
+            "caption": "Settings",
+            "command": "edit_settings",
+            "args":
+            {
+                "base_file": "${packages}/gemini/gemini.sublime-settings",
+                "default": "{\n\t$0\n}\n"
+            }
+        }
+      ]
+      }
+    ]
+  }
+  ,
+    { "id": "preferences",
+    "children": [
+      { "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children": [
+          { "caption": "gemini",
+            "children": [
+              { "caption": "README",
+                "command": "open_file",
+                "args": {
+                  "file": "${packages}/gemini/README.md"
+                }
+              },
+              { "caption": "-" },
+              { "caption": "Settings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/gemini/gemini.sublime-settings",
+                  "default": "{\n\t$0\n}\n"
+                }
+              },
+              { "caption": "Key Bindings",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/gemini/gemini.sublime-keymap",
+                  "default": "[\n\t$0\n]\n"
+                }
+              },
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
