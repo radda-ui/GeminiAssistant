@@ -68,7 +68,8 @@ def get_gemini_response_view(window):
 
 def _apply_console_style(view):
     plugin_dir = os.path.dirname(__file__)
-    pkg_name   = os.path.basename(plugin_dir)
+    pkg_name = os.path.basename(plugin_dir).replace('.sublime-package', '')
+    print(pkg_name)
     view.set_syntax_file("Packages/{}/GeminiConsole.sublime-syntax".format(pkg_name))
     view.settings().set("color_scheme",
         "Packages/{}/GeminiConsole.sublime-color-scheme".format(pkg_name))
