@@ -20,7 +20,7 @@
             "command": "open_file",
             "args":
             {
-                "file": "${packages}/gemini/README.md"
+                "file": "${packages}/GeminiAssistant/README.md"
             }
         },
         {
@@ -31,7 +31,7 @@
             "command": "edit_settings",
             "args":
             {
-                "base_file": "${packages}/gemini/gemini.sublime-settings",
+                "base_file": "${packages}/GeminiAssistant/gemini.sublime-settings",
                 "default": "{\n\t$0\n}\n"
             }
         }
@@ -51,21 +51,21 @@
               { "caption": "README",
                 "command": "open_file",
                 "args": {
-                  "file": "${packages}/gemini/README.md"
+                  "file": "${packages}/GeminiAssistant/README.md"
                 }
               },
               { "caption": "-" },
               { "caption": "Settings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/gemini/gemini.sublime-settings",
+                  "base_file": "${packages}/GeminiAssistant/gemini.sublime-settings",
                   "default": "{\n\t$0\n}\n"
                 }
               },
               { "caption": "Key Bindings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/gemini/gemini.sublime-keymap",
+                  "base_file": "${packages}/GeminiAssistant/Default ($platform ).sublime-keymap",
                   "default": "[\n\t$0\n]\n"
                 }
               },

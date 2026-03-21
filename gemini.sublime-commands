@@ -24,7 +24,7 @@
         "caption": "Gemini: Settings",
         "command": "edit_settings",
         "args": {
-            "base_file": "${packages}/gemini/gemini.sublime-settings",
+            "base_file": "${packages}/GeminiAssistant/gemini.sublime-settings",
             "default": "{\n\t$0\n}\n"
         }
     },
@@ -32,7 +32,7 @@
         "caption": "Gemini: Key Bindings",
         "command": "edit_settings",
         "args": {
-            "base_file": "${packages}/gemini/Default  ($platform).sublime-keymap",
+            "base_file": "${packages}/GeminiAssistant/Default  ($platform).sublime-keymap",
             "default": "[\n\t$0\n]\n"
         }
     },
@@ -40,7 +40,7 @@
         "caption": "Gemini: Open Readme",
         "command": "open_file",
         "args": {
-            "file": "${packages}/gemini/README.md"
+            "file": "${packages}/GeminiAssistant/README.md"
         }
     }
 ]
