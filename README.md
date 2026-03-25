@@ -4,6 +4,9 @@ A Google Gemini AI assistant integrated directly into Sublime Text as an interac
 
 ---
 
+## NOTE
+this package is still highly experimental few bugs are still present however it still works ok 
+i hope i will be able to fix em as soon as possible 
 ## Features
 
 **Interactive console** — a dedicated terminal-style panel where you type naturally and hit Enter to send. No popups, no input panels after the first message. Responses appear inline with syntax-aware formatting.
