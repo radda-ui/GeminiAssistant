@@ -31,7 +31,7 @@
             "command": "edit_settings",
             "args":
             {
-                "base_file": "${packages}/GeminiAssistant/gemini.sublime-settings",
+                "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
                 "default": "{\n\t$0\n}\n"
             }
         }
@@ -46,32 +46,40 @@
         "mnemonic": "P",
         "id": "package-settings",
         "children": [
-          { "caption": "gemini",
-            "children": [
-              { "caption": "README",
-                "command": "open_file",
-                "args": {
-                  "file": "${packages}/GeminiAssistant/README.md"
-                }
+          {
+              "caption": "Gemini Assistant",
+              "children": [
+              {
+                  "caption": "README",
+                  "command": "open_file",
+                  "args":
+                  {
+                      "file": "${packages}/GeminiAssistant/README.md"
+                  }
               },
-              { "caption": "-" },
-              { "caption": "Settings",
-                "command": "edit_settings",
-                "args": {
-                  "base_file": "${packages}/GeminiAssistant/gemini.sublime-settings",
-                  "default": "{\n\t$0\n}\n"
-                }
+              {
+                  "caption": "-",
               },
-              { "caption": "Key Bindings",
-                "command": "edit_settings",
-                "args": {
-                  "base_file": "${packages}/GeminiAssistant/Default ($platform ).sublime-keymap",
-                  "default": "[\n\t$0\n]\n"
-                }
+              {
+                  "caption": "Settings",
+                  "command": "edit_settings",
+                  "args":
+                  {
+                      "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
+                      "default": "{\n\t$0\n}\n"
+                  }
               },
+              {
+                  "caption": "Key Bindings",
+                  "command": "edit_settings",
+                  "args":
+                  {
+                      "base_file": "${packages}/GeminiAssistant/Default ($platform).sublime-keymap",
+                      "default": "[\n\t$0\n]\n"
+                  }
+              }
             ]
-          }
-        ]
+            }
       }
     ]
   }

@@ -114,8 +114,15 @@ def _invalidate_prompt_cache():
     _system_prompt_cache[0] = None
 
 
-_settings_obj = sublime.load_settings("gemini.sublime-settings")
-_settings_obj.add_on_change("gemini_prompt_cache", _invalidate_prompt_cache)
+_settings_obj = None
+
+def plugin_loaded():
+    global _settings_obj
+    _settings_obj = sublime.load_settings("Gemini Assistant.sublime-settings")
+    _settings_obj.add_on_change("gemini_prompt_cache", _invalidate_prompt_cache)
+
+def get_settings():
+    return _settings_obj
 
 
 def _make_client(settings):
@@ -609,7 +616,7 @@ class GeminiSetContentCommand(sublime_plugin.TextCommand):
 
 class GeminiCodeAssistantCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        settings = sublime.load_settings("gemini.sublime-settings")
+        settings = get_settings()
         self.system_prompt      = _build_system_prompt(settings)
         self.db_path            = settings.get("db_path",
                                     sublime.packages_path() + "/User/gemini_db.db")
@@ -698,7 +705,7 @@ class GeminiConsoleSubmitCommand(sublime_plugin.TextCommand):
             return
 
         # ── Normal message mode ──────────────────────────────────────────────
-        settings = sublime.load_settings("gemini.sublime-settings")
+        settings = get_settings()
         results, text_context, images, matches = process_attachments(user_input, window)
 
         clean       = ATTACH_PATTERN.sub('', user_input).strip()
@@ -733,7 +740,7 @@ class GeminiConsoleSubmitCommand(sublime_plugin.TextCommand):
 
     def _handle_confirmation(self, edit, user_input, pending_json, window):
         """Process y / n / skip N responses to the tool confirmation prompt."""
-        settings = sublime.load_settings("gemini.sublime-settings")
+        settings = get_settings()
         text     = user_input.strip().lower()
 
         try:
@@ -791,7 +798,7 @@ class GeminiConsoleSubmitCommand(sublime_plugin.TextCommand):
 
 class GeminiNewConversationCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        settings = sublime.load_settings("gemini.sublime-settings")
+        settings = get_settings()
         db_path  = settings.get("db_path", sublime.packages_path() + "/User/gemini_db.db")
         database = Database(db_path)
 
@@ -813,7 +820,7 @@ class GeminiNewConversationCommand(sublime_plugin.TextCommand):
 
 class GeminiOpenConversationCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        settings      = sublime.load_settings("gemini.sublime-settings")
+        settings      = sublime.load_settings("Gemini Assistant.sublime-settings")
         db_path       = settings.get("db_path", sublime.packages_path() + "/User/gemini_db.db")
         self.database = Database(db_path)
 
@@ -850,7 +857,7 @@ class GeminiOpenConversationCommand(sublime_plugin.TextCommand):
 
 class GeminiDeleteConversationCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        settings      = sublime.load_settings("gemini.sublime-settings")
+        settings      = sublime.load_settings("Gemini Assistant.sublime-settings")
         db_path       = settings.get("db_path", sublime.packages_path() + "/User/gemini_db.db")
         self.database = Database(db_path)
 
@@ -994,7 +1001,7 @@ class GeminiMoveFileCommand(sublime_plugin.WindowCommand):
         )
 
     def on_done(self, dest):
-        settings     = sublime.load_settings("gemini.sublime-settings")
+        settings     = sublime.load_settings("Gemini Assistant.sublime-settings")
         project_root = self.window.folders()[0] if self.window.folders() else None
 
         if not settings.get("allow_move_file", True):

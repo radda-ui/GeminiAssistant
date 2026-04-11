@@ -37,7 +37,7 @@
                 "caption": "Settings",
                 "command": "edit_settings",
                 "args": {
-                    "base_file": "${packages}/GeminiAssistant/gemini.sublime-settings",
+                    "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
                     "default": "{\n\t$0\n}\n"
                 }
             },
