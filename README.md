@@ -111,4 +111,4 @@ Press **Alt+G** from any file to open the console and start typing. Hit **Enter*
 
 ## License
 
-MIT
+(http://www.apache.org/licenses/LICENSE-2.0)
