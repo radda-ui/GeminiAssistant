@@ -22,33 +22,6 @@
                 "caption": "Copy Last Response",
                 "command": "gemini_copy_last_response"
             },
-            {
-                "caption": "-"
-            },
-            {
-                "caption": "Move / Rename File",
-                "command": "gemini_move_file",
-                "args": { "paths": [] }
-            },
-            {
-                "caption": "-"
-            },
-            {
-                "caption": "Settings",
-                "command": "edit_settings",
-                "args": {
-                    "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
-                    "default": "{\n\t$0\n}\n"
-                }
-            },
-            {
-                "caption": "Key Bindings",
-                "command": "edit_settings",
-                "args": {
-                    "base_file": "${packages}/GeminiAssistant/Default ($platform).sublime-keymap",
-                    "default": "[\n\t$0\n]\n"
-                }
-            }
         ]
     }
 ]
