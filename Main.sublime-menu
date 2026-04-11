@@ -1,38 +1,38 @@
 [
-{
+  {
     "id": "tools",
     "children": [
-    {
-        "caption": "gemini",
+      {
+        "caption": "Gemini Assistant",
         "children": [
-        {
-            "caption": "Ask for Code Help",
+          {
+            "caption": "Ask Gemini",
             "command": "gemini_code_assistant",
             "args":
             {},
             "id": "gemini_code_assistant"
         },
-        {
+          {
             "caption": "-",
         },
-        {
+          {
             "caption": "README",
             "command": "open_file",
             "args":
             {
-                "file": "${packages}/GeminiAssistant/README.md"
+              "file": "${packages}/GeminiAssistant/README.md"
             }
         },
-        {
+          {
             "caption": "-"
         },
-        {
+          {
             "caption": "Settings",
             "command": "edit_settings",
             "args":
             {
-                "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
-                "default": "{\n\t$0\n}\n"
+              "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
+              "default": "{\n\t$0\n}\n"
             }
         }
       ]
@@ -40,47 +40,50 @@
     ]
   }
   ,
-    { "id": "preferences",
+  {
+    "id": "preferences",
     "children": [
-      { "caption": "Package Settings",
+      {
+        "caption": "Package Settings",
         "mnemonic": "P",
         "id": "package-settings",
         "children": [
           {
-              "caption": "Gemini Assistant",
-              "children": [
+            "caption": "Gemini Assistant",
+            "children": [
               {
-                  "caption": "README",
-                  "command": "open_file",
-                  "args":
-                  {
-                      "file": "${packages}/GeminiAssistant/README.md"
-                  }
+                "caption": "README",
+                "command": "open_file",
+                "args":
+                {
+                  "file": "${packages}/GeminiAssistant/README.md"
+                }
               },
               {
-                  "caption": "-",
+                "caption": "-",
               },
               {
-                  "caption": "Settings",
-                  "command": "edit_settings",
-                  "args":
-                  {
-                      "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
-                      "default": "{\n\t$0\n}\n"
-                  }
+                "caption": "Settings",
+                "command": "edit_settings",
+                "args":
+                {
+                  "base_file": "${packages}/GeminiAssistant/Gemini Assistant.sublime-settings",
+                  "default": "{\n\t$0\n}\n"
+                }
               },
               {
-                  "caption": "Key Bindings",
-                  "command": "edit_settings",
-                  "args":
-                  {
-                      "base_file": "${packages}/GeminiAssistant/Default ($platform).sublime-keymap",
-                      "default": "[\n\t$0\n]\n"
-                  }
-              }
+                "caption": "Key Bindings",
+                "command": "edit_settings",
+                "args":
+                {
+                  "base_file": "${packages}/GeminiAssistant/Default ($platform).sublime-keymap",
+                  "default": "[\n\t$0\n]\n"
+                }
+              },
             ]
-            }
-      }
+          }
+        ],
+      },
     ]
   }
 ]

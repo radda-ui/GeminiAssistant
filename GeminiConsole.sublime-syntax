@@ -6,6 +6,11 @@ scope: text.gemini-console
 
 contexts:
   main:
+    - match: '^(gemini ◆)(.*)'
+      captures:
+        1: keyword.gemini-prompt
+      push: gemini_markdown_body
+
     # Session / loading header lines  ── New conversation, Loading Conversation
     - match: '^(─+.*─+|─+)$'
       scope: comment.gemini-divider
@@ -58,3 +63,7 @@ contexts:
       pop: true
     - match: '.*'
       scope: source.gemini-code
+  gemini_markdown_body:
+    - match: '^(you ❯|error ✖|❯ SESSION |─{10})'
+      pop: true
+    - include: scope:text.html.markdown

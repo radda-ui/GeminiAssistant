@@ -51,6 +51,7 @@ class GeminiAPIClient:
 
             # Check for quota error
             if self._is_quota_error(response.status_code, data):
+                old_idx = self.key_manager._index
                 self.key_manager.mark_dead(key)
                 _, swapped, all_dead = self.key_manager.advance()
 
@@ -71,10 +72,9 @@ class GeminiAPIClient:
                     }
 
                 if swapped:
-                    prev_idx  = (self.key_manager._index - 1) % len(self.key_manager)
                     swap_message = (
                         "⚠ API key #{} hit quota — switched to key #{}".format(
-                            prev_idx + 1, self.key_manager._index + 1)
+                            old_idx + 1, self.key_manager._index + 1)
                     )
                 continue  # retry with new key
 
@@ -103,13 +103,20 @@ class GeminiAPIClient:
         return err.get("status", "") in QUOTA_STATUSES
 
     def _build_payload(self, system_instruction, conversation, images):
+        # Find index of last user message to attach images
+        last_user_idx = -1
+        if images:
+            for i in range(len(conversation) - 1, -1, -1):
+                if conversation[i]["role"] != "gemini":
+                    last_user_idx = i
+                    break
+
         contents = []
         for i, msg in enumerate(conversation):
             role  = "model" if msg["role"] == "gemini" else "user"
             parts = [{"text": msg["content"]}]
 
-            is_last = (i == len(conversation) - 1)
-            if images and is_last and role == "user":
+            if i == last_user_idx:
                 for b64_data, mime_type in images:
                     parts.append({
                         "inline_data": {
@@ -119,9 +126,9 @@ class GeminiAPIClient:
                     })
 
             contents.append({"role": role, "parts": parts})
-
+        print(system_instruction)
         return {
-            "system_instruction": {"parts": {"text": system_instruction}},
+            "system_instruction": {"parts": [{"text": system_instruction}]},
             "contents": contents,
             "generationConfig": self.config,
         }

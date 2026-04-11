@@ -1,7 +1,9 @@
 {
   "*": {
     "*": [
-      "requests"
+      "requests",
+      "urllib3",
+      "idna"
     ]
   }
 }

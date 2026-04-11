@@ -24,9 +24,6 @@
     },
 
     // Alt+N starts a new conversation.
-    {
-        "keys": ["alt+n"],
-        "command": "gemini_new_conversation"
-    }
+
 ]
 

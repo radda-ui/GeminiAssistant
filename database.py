@@ -40,7 +40,7 @@ class Database:
         cursor.execute('''
             SELECT role, content FROM messages
             WHERE conversation_id = ?
-            ORDER BY timestamp
+            ORDER BY id
         ''', (conversation_id,))
         return [{"role": row[0], "content": row[1]} for row in cursor.fetchall()]
 
@@ -52,13 +52,13 @@ class Database:
             FROM conversations c
             LEFT JOIN (
                 SELECT conversation_id, content,
-                       ROW_NUMBER() OVER(PARTITION BY conversation_id ORDER BY timestamp ASC) as rn
+                       ROW_NUMBER() OVER(PARTITION BY conversation_id ORDER BY id ASC) as rn
                 FROM messages
                 WHERE role = 'user'
             ) first_msg ON c.id = first_msg.conversation_id AND first_msg.rn = 1
             LEFT JOIN (
                 SELECT conversation_id, content,
-                       ROW_NUMBER() OVER(PARTITION BY conversation_id ORDER BY timestamp DESC) as rn
+                       ROW_NUMBER() OVER(PARTITION BY conversation_id ORDER BY id DESC) as rn
                 FROM messages
             ) last_msg ON c.id = last_msg.conversation_id AND last_msg.rn = 1
             ORDER BY c.timestamp DESC
